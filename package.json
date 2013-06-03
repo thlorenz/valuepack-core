@@ -1,0 +1,26 @@
+{
+    "name" : "valuepack-core",
+    "version" : "0.0.0",
+    "description" : "Core utils and configurations for valuepack.",
+    "main" : "index.js",
+    "scripts" : {
+        "test" : "tap test/*.js"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/thlorenz/valuepack-core.git"
+    },
+    "homepage" : "https://github.com/thlorenz/valuepack-core",
+    "dependencies" : {
+    },
+    "devDependencies" : {
+    },
+    "keywords": [] ,
+    "author" : {
+        "name" : "Thorsten Lorenz",
+        "email" : "thlorenz@gmx.de",
+        "url" : "http://thlorenz.com"
+    },
+    "license" : "MIT",
+    "engine" : { "node" : ">=0.6" }
+}
