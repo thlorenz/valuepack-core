@@ -17,10 +17,10 @@ exports.npm = {
 
 exports.github = {
 
-    users    :  githubusers
+    users     :  githubusers
 
-  , repos    :  githubrepos
-  , byOwner  :  'index-'    + githubrepos + '-byOwner'
+  , repos     :  githubrepos
+  , byOwner   :  'index-'    + githubrepos + '-byOwner'
 
-  , userMeta :  'meta-' + githubusers
+  , usersMeta :  'meta-' + githubusers
 };
