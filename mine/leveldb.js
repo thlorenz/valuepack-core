@@ -1,6 +1,6 @@
 'use strict';
 
-var level      =  require('level')
+var level      =  require('levelup')
   , path       =  require('path')
   , dblocation =  process.env.VALUEPACK_MINE_DB || path.join(__dirname, '..', 'store/valuepack-mine.db');
 
