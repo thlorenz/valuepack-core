@@ -1,4 +1,4 @@
-# valuepack-core
+# valuepack-core [![build status](https://secure.travis-ci.org/thlorenz/valuepack-core.png)](http://travis-ci.org/thlorenz/valuepack-core)
 
 Core utils and configurations for [valuepack](https://github.com/thlorenz/valuepack), the community driven rating system for nodejs modules on
 npm in order to help in selecting the right one.
