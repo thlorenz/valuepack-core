@@ -2,9 +2,20 @@
 
 var Memdown    =  require('memdown') 
   , level      =  require('levelup')
-  , dblocation =  'not/used'
+  , dblocation =  'in/memory'
   , factory    =  function (l) { return new Memdown(l); };
 
-module.exports = function () {
-  return level(dblocation, { db: factory });
+exports.location = dblocation;
+exports.destroy = function () { console.error('destroying db'); };
+exports.open  = function (cb) {
+  return level(dblocation, { db: factory, valueEncoding: 'json' }, cb);
+};
+
+exports.close = function done(err, db) {
+  if (err) { 
+    console.trace();
+    console.error(err);
+  }
+  console.log('closing db');
+  db && db.close();
 };

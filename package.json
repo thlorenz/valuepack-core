@@ -4,7 +4,7 @@
   "description": "Core utils and configurations for valuepack, not at all useful by itself.",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'None yet'"
+    "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,9 @@
     "leveldown": "~0.5.0",
     "memdown": "~0.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tap": "~0.4.3"
+  },
   "keywords": [],
   "author": {
     "name": "Thorsten Lorenz",
