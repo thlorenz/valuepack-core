@@ -1,9 +1,11 @@
 'use strict';
 
-var npmusers    =  'npm-users'
-  , npmpackages =  'npm-packages'
-  , githubusers =  'github-users'
-  , githubrepos =  'github-repos';
+var npmusers      =  'npm-users'
+  , npmpackages   =  'npm-packages'
+  , githubusers   =  'github-users'
+  , githubrepos   =  'github-repos'
+  , githubstarred =  'github-starred'
+
 
 exports.npm = {
 
@@ -18,6 +20,7 @@ exports.npm = {
 exports.github = {
 
     users     :  githubusers
+  , starred   :  githubstarred
 
   , repos     :  githubrepos
   , byOwner   :  'index-'    + githubrepos + '-byOwner'
