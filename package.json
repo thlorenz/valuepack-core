@@ -1,6 +1,6 @@
 {
   "name": "valuepack-core",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Core utils and configurations for valuepack, not at all useful by itself.",
   "main": "index.js",
   "scripts": {
