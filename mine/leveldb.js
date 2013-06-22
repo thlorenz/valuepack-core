@@ -8,11 +8,11 @@ exports.location = dblocation;
 exports.destroy =  level.destroy.bind(level, dblocation);
 exports.open    =  level.bind(level, dblocation, { valueEncoding: 'json' });
 
-exports.close = function done(err, db) {
+exports.close = function done(err, db, cb) {
   if (err) { 
-    console.trace();
+    console.error(err.stack);
     console.error(err);
   }
-  console.log('closing db');
-  db && db.close();
+  console.error('closing db');
+  db && db.close(cb);
 };

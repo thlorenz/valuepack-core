@@ -11,11 +11,11 @@ exports.open  = function (cb) {
   return level(dblocation, { db: factory, valueEncoding: 'json' }, cb);
 };
 
-exports.close = function done(err, db) {
+exports.close = function done(err, db, cb) {
   if (err) { 
     console.trace();
     console.error(err);
   }
-  console.log('closing db');
-  db && db.close();
+  console.error('closing db');
+  db && db.close(cb);
 };
