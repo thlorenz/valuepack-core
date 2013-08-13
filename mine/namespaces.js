@@ -5,8 +5,17 @@ var npmusers      =  'npm-users'
   , githubusers   =  'github-users'
   , githubrepos   =  'github-repos'
   , githubstarred =  'github-starred'
+  , mapusers      =  'map-users'
+  , maprepos      =  'map-repos'
+  ;
 
 
+/**
+ * sublevels that store npm user and package information
+ * 
+ * @name 
+ * @function
+ */
 exports.npm = {
 
     users     :  npmusers
@@ -17,6 +26,13 @@ exports.npm = {
   , byKeyword :  'index-'    + npmpackages + '-byKeyword'
 };
 
+
+/**
+ * sublevels that store github user information and information about github repositories
+ * 
+ * @name 
+ * @function
+ */
 exports.github = {
 
     users     :  githubusers
@@ -26,4 +42,21 @@ exports.github = {
   , byOwner   :  'index-'    + githubrepos + '-byOwner'
 
   , usersMeta :  'meta-' + githubusers
+};
+
+/**
+ * sublevels that help to map npm users to github users and find github repos for npm packages
+ * it stores matches that were made in the past in order to minimize expensive requests 
+ * mad to find these matches
+ * 
+ * Some of this data will be duplicated, i.e. npm.byGithub will mirror mapusers information, but
+ * this is desired in order to allow totally refreshing npm packages data without loosing the
+ * match information
+ *
+ * @name 
+ * @function
+ */
+exports.map = {
+    users : mapusers
+  , repos : maprepos
 };
