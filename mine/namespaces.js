@@ -5,7 +5,6 @@ var npmusers      =  'npm-users'
   , githubusers   =  'github-users'
   , githubrepos   =  'github-repos'
   , githubstarred =  'github-starred'
-  , mapusers      =  'map-users'
   , maprepos      =  'map-repos'
   ;
 
@@ -13,8 +12,6 @@ var npmusers      =  'npm-users'
 /**
  * sublevels that store npm user and package information
  * 
- * @name 
- * @function
  */
 exports.npm = {
 
@@ -30,8 +27,6 @@ exports.npm = {
 /**
  * sublevels that store github user information and information about github repositories
  * 
- * @name 
- * @function
  */
 exports.github = {
 
@@ -53,10 +48,7 @@ exports.github = {
  * this is desired in order to allow totally refreshing npm packages data without loosing the
  * match information
  *
- * @name 
- * @function
  */
 exports.map = {
-    users : mapusers
-  , repos : maprepos
+  repos : maprepos
 };
