@@ -50,5 +50,6 @@ exports.github = {
  *
  */
 exports.map = {
+  // not used at this point
   repos : maprepos
 };
