@@ -7,14 +7,14 @@ var mapStream = require('map-stream');
 /**
  * Maps the username to a stream of package infos for packages the user owns.
  *
- * @name userToPackageInfoStream
+ * @name npmUserToPackageInfoStream
  * @function
  * @param npmPackages {Sublevel}
  * @param byOwner {Sublevel}
  * @param username {String} npm username
  * @return {Stream} packageInfos from npmPackages sublevel
  */
-exports.userToPackageInfoStream = function (npmPackages, byOwner, username) {
+exports.npmUserToPackageInfoStream = function (npmPackages, byOwner, username) {
 
   function packInfo (name, cb) {
     npmPackages.get(name, function (err, pack) {

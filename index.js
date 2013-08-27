@@ -1,5 +1,5 @@
 'use strict';
 
-exports.end = '\xff';
+exports.sep = '\xff';
 
 exports.nib = '\xff\xff';
