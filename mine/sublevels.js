@@ -29,4 +29,16 @@ var go = module.exports = function (db) {
   return sublevels;
 };
 
+// Test
+if (!module.parent) {
+  var leveldb = require('./leveldb');
+  var dump = require('level-dump');
+  leveldb.open(function (err, db) {
+    if (err) return console.error(err);
+    var sublevels = go(db);
+    var npm = sublevels.npm;
 
+    dump(npm.byGithub);
+
+  });
+}
