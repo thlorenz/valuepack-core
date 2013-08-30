@@ -16,9 +16,7 @@ This section describes each sublevel used in the leveldb store along with some e
 
 ### mining
 
-#### npm
-
-##### users
+#### npm users
 
 Stores metadata of all npm users (name, email, full name, gihub login and twitter login).
 
@@ -66,8 +64,66 @@ Indexes all npm user names by their github login(s).
 { key: 'rexdf', value: '"rexdf"' }
 { key: 'rexmorgan', value: '"rexm"' }
 { key: 'reybango', value: '"reybango"' }
-{ key: 'reynish', value: '"reynish"' }
-{ key: 'rezoner', value: '"rezoner"' }
-{ key: 'rfate', value: '"moatles"' }
 ```
 
+#### npm packages
+
+Stores metadata of all npm packages.
+
+###### Encoding
+
+`utf8:json`
+
+###### Sample
+
+```js
+{ key: 'deftypes',
+  value:
+   { name: 'deftypes',
+     owner: 'mizchi',
+     email: 'miz404@gmail.com',
+     repoUrl: null,
+     versions: { '0.0.4': 'latest' },
+     keywords: [],
+     description: 'type annotation DSL' } }
+{ key: 'defunc',
+  value:
+   { name: 'defunc',
+     owner: 'imbcmdth',
+     email: 'jon.carlos.rivera@gmail.com',
+     repoUrl: 'git://github.com/imbcmdth/deFunc.git',
+     versions: { '0.0.5': 'latest' },
+     keywords: [ 'function', 'bind', 'parameter', 'arguments', 'defaults' ],
+     description: 'Default function arguments helper' } }
+```
+
+
+##### byOwner
+
+Indexes all npm packages by the npm users that authored (owns) them.
+
+###### Encoding
+
+`utf8:utf8`
+
+###### Sample
+
+```js
+{ key: 'cmenscherÿnode-netatmo', value: 'node-netatmo' }
+{ key: 'cmfatihÿamazon-costs', value: 'amazon-costs' }
+```
+
+##### byKeyword
+
+Indexes all npm packages by the keywords that were included in their metadata.
+
+###### Encoding
+
+`utf8:utf8`
+
+###### Sample
+
+```js
+{ key: 'authenticationÿbasicauth', value: '"basicauth"' }
+{ key: 'authenticationÿbcrypt', value: '"bcrypt"' }
+```
