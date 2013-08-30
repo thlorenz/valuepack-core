@@ -5,14 +5,16 @@ var log = require('../util/log');
 var mapStream = require('map-stream');
 
 /**
- * Maps the username to a stream of package infos for packages the user owns.
+ * Maps the npm username to a stream of package infos for packages the user owns.
  *
  * @name npmUserToPackageInfoStream
  * @function
- * @param npmPackages {Sublevel}
- * @param byOwner {Sublevel}
+ * @param npmPackages {Sublevel} npm.packages
+ * @param byOwner {Sublevel} npm.byOwner
  * @param username {String} npm username
- * @return {Stream} packageInfos from npmPackages sublevel
+ * @return {Stream} packageInfos from npmPackages sublevel, each info has the following properties:
+ *  - user: npm user name
+ *  - pack: npm package info
  */
 exports.npmUserToPackageInfoStream = function (npmPackages, byOwner, username) {
 
