@@ -19,11 +19,11 @@ var go = module.exports = function (db) {
   sublevels.github = {
       users     :  db.sublevel(github.users,     { valueEncoding :  'json' })
     , starred   :  db.sublevel(github.starred,   { valueEncoding :  'json' })
+    , usersMeta :  db.sublevel(github.usersMeta, { valueEncoding :  'json' })
 
     , repos     :  db.sublevel(github.repos,     { valueEncoding :  'json' })
     , byOwner   :  db.sublevel(github.byOwner,   { valueEncoding :  'utf8' })
 
-    , usersMeta :  db.sublevel(github.usersMeta, { valueEncoding :  'json' })
   }
 
   return sublevels;
@@ -33,12 +33,18 @@ var go = module.exports = function (db) {
 if (!module.parent) {
   var leveldb = require('./leveldb');
   var dump = require('level-dump');
+  var tap = require('tap-stream');
+
   leveldb.open(function (err, db) {
     if (err) return console.error(err);
     var sublevels = go(db);
     var npm = sublevels.npm;
+    var github = sublevels.github;
 
-    dump(npm.byGithub);
+    /*github.starred
+      .createReadStream({ start: 'domenic', end: 'domenic\xff\xff' })
+      .pipe(tap(1));*/
+    dump(github.usersMeta);
 
   });
 }
