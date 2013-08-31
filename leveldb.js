@@ -1,6 +1,7 @@
 'use strict';
 
-var level    =  require('level')
+var levelup  =  require('levelup')
+  , leveldown = require('leveldown')
   , sublevel =  require('level-sublevel')
   , log      =  require('./util/log')
   ;
@@ -19,7 +20,7 @@ module.exports = function (dblocation) {
   leveldb.location = dblocation;
 
   // destroys the database at the given location by removing the database directory
-  leveldb.destroy =  level.destroy.bind(level, dblocation);
+  leveldb.destroy =  levelup.destroy.bind(levelup, dblocation);
 
   /**
    * Opens a database at the dblocation
@@ -29,7 +30,7 @@ module.exports = function (dblocation) {
    * @param cb {Function} calls back with and error or the database with level-sublevel mixed in
    */
   leveldb.open    =  function (cb) {
-    level(dblocation, { valueEncoding: 'json' }, function (err, db) {
+    levelup(dblocation, { db: leveldown, valueEncoding: 'json' }, function (err, db) {
       if (err) return cb(err);
       cb(null, sublevel(db));
     });

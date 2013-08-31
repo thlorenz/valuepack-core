@@ -16,7 +16,8 @@
     "level-sublevel": "~4.7.0",
     "npmlog": "0.0.4",
     "map-stream": "0.0.2",
-    "level": "~0.15.0"
+    "levelup": "~0.15.0",
+    "leveldown": "~0.8.0"
   },
   "devDependencies": {
     "tap": "~0.4.3",
