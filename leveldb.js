@@ -1,6 +1,6 @@
 'use strict';
 
-var level    =  require('levelup')
+var level    =  require('level')
   , sublevel =  require('level-sublevel')
   , log      =  require('./util/log')
   ;
