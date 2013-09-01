@@ -41,10 +41,8 @@ if (!module.parent) {
     var npm = sublevels.npm;
     var github = sublevels.github;
 
-    /*github.starred
-      .createReadStream({ start: 'domenic', end: 'domenic\xff\xff' })
-      .pipe(tap(1));*/
-    dump(github.usersMeta);
-
+    npm.users
+      .createReadStream({ start: 'domenic', end: 'domenic\xff\xff', values: false })
+      .pipe(tap(1));
   });
 }
