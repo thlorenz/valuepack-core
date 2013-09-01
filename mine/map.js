@@ -22,7 +22,7 @@ exports.npmUserToPackageInfoStream = function (npmPackages, byOwner, username) {
   function packInfo (name, cb) {
     npmPackages.get(name, function (err, pack) {
       if (err) log.warn('github-logins', 'name', name, err);
-      if (!err && pack) cb(null, { user: name, pack: pack }); 
+      if (!err && pack) cb(null, { user: username, pack: pack }); 
       else cb();
     });
   }
