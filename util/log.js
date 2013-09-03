@@ -18,9 +18,10 @@ function enhance (level) {
 
   npmlog[level] = function () {
     var args = Array.prototype.slice.call(arguments);
+    var date = '\u001b[90m' + formatDate(new Date()) + ' \u001b[39m';
 
     // '/lib/get-github-repos.js' becomes 'get-github-repos'
-    args[0] = path.basename(args[0], '.js');
+    args[0] = date + path.basename(args[0], '.js');
     return origFn.apply(this, args);
   };
 }
@@ -73,8 +74,7 @@ exports.writeTo = function (filename, writesToRollover) {
 // Test
 if (!module.parent) {
   var log = exports;
-  var msgs = 0;
-  log.writeTo(path.join(__dirname, '../logs', 'test.log'));
+  var msgs = { count: 0, text: 'hello this is a very long text', othertext: 'hello this is another very long text'  }
 
-  log.info(__filename, 'message %d', msgs++);
+  log.info(__filename, 'message', msgs);
 }
