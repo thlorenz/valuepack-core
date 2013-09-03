@@ -39,7 +39,7 @@ function getFilestream (filename, count) {
 }
 
 exports.writeTo = function (filename, writesToRollover) {
-  writesToRollover = writesToRollover || 5000;
+  writesToRollover = writesToRollover || 2000;
   var count = -1;
   var outlog, writes;
 
