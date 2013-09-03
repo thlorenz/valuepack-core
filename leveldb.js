@@ -1,7 +1,7 @@
 'use strict';
 
 var levelup  =  require('levelup')
-  , leveldown = require('leveldown')
+  , leveldown = require('leveldown-hyper')
   , sublevel =  require('level-sublevel')
   , log      =  require('./util/log')
   ;
